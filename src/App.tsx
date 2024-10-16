@@ -1,11 +1,8 @@
-import Header from 'components/Header';
+import useRouteElements from './useRouteElements';
 
 function App() {
-    return (
-        <div className='App'>
-            <Header />
-        </div>
-    );
+    const routeElement = useRouteElements();
+    return <div>{routeElement}</div>;
 }
 
 export default App;

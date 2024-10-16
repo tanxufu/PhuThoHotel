@@ -1,9 +1,7 @@
 import './Styles.scss';
-import './base';
-import './abstracts';
 
 type StylesProps = {
-    children: React.ReactNode;
+    children: React.ReactElement;
 };
 
 function Styles({ children }: StylesProps) {
