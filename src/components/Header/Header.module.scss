@@ -1,0 +1,10 @@
+@use '../Styles/abstracts';
+
+.header {
+    background: #000;
+    width: 100%;
+
+    @include abstracts.screen(md) {
+        background: red;
+    }
+}
