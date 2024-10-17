@@ -13,6 +13,13 @@ function Header() {
         setIsMenuOpen((prev) => !prev);
     };
 
+    // const links = [
+    //     { to: '/', name: 'Trang Chủ' },
+    //     { to: '/blogs', name: 'Bài Viết' },
+    //     { to: '/documents', name: 'Tài Liệu' },
+    //     { to: '/careers', name: 'Tuyển Dụng' }
+    // ];
+
     return (
         <header className={cx('header')}>
             <nav className={cx('topbar')}>
@@ -38,20 +45,44 @@ function Header() {
                             className={cx('close-btn__icon')}
                         />
                     </button>
-                    <li>
+                    {/* {links.map((link, index) => {
+                        return (
+                            <li key={index} onClick={toggleMenu}>
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        cx('topbar__link', {
+                                            'topbar__link--active': isActive
+                                        })
+                                    }
+                                    to={link.to}
+                                >
+                                    {link.name}
+                                </NavLink>
+                            </li>
+                        );
+                    })} */}
+
+                    <li onClick={toggleMenu}>
                         <NavLink
                             className={({ isActive }) =>
                                 cx('topbar__link', {
                                     'topbar__link--active': isActive
                                 })
                             }
-                            to='#'
+                            to='/'
                         >
                             TRANG CHỦ
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink className={cx('topbar__link')} to='#'>
+                    <li onClick={toggleMenu}>
+                        <NavLink
+                            className={({ isActive }) =>
+                                cx('topbar__link', {
+                                    'topbar__link--active': isActive
+                                })
+                            }
+                            to='/blogs'
+                        >
                             BÀI VIẾT
                         </NavLink>
                     </li>
@@ -67,13 +98,27 @@ function Header() {
                             />
                         </Link>
                     </li>
-                    <li>
-                        <NavLink className={cx('topbar__link')} to='#'>
+                    <li onClick={toggleMenu}>
+                        <NavLink
+                            className={({ isActive }) =>
+                                cx('topbar__link', {
+                                    'topbar__link--active': isActive
+                                })
+                            }
+                            to='/documents'
+                        >
                             TÀI LIỆU
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink className={cx('topbar__link')} to='#'>
+                    <li onClick={toggleMenu}>
+                        <NavLink
+                            className={({ isActive }) =>
+                                cx('topbar__link', {
+                                    'topbar__link--active': isActive
+                                })
+                            }
+                            to='/careers'
+                        >
                             TUYỂN DỤNG
                         </NavLink>
                     </li>
