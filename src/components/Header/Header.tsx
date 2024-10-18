@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
-import icon from '~/assets/icon';
+import icon from '~/assets/icons';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);

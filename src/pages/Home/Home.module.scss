@@ -1,0 +1,597 @@
+@use '../../components/Styles/abstracts';
+
+.home {
+}
+
+.home-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 0 40px;
+
+    @include abstracts.screen(md) {
+        padding: 45px 0 100px;
+    }
+
+    &__info {
+        text-align: center;
+    }
+
+    &__label {
+        font-family: 'Philosopher', 'sans-serif';
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+
+        color: #fff;
+
+        @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__heading {
+        margin-top: 20px;
+
+        font-size: 4.4rem;
+        font-weight: 700;
+        letter-spacing: 1.76px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+
+        color: #9ff;
+
+        @include abstracts.screen(md) {
+            margin-top: 12px;
+
+            font-size: 2.4rem;
+            letter-spacing: 0.96px;
+        }
+    }
+
+    &__founding-date {
+        margin-top: 20px;
+
+        font-size: 2.4rem;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.5;
+
+        color: #fff;
+
+        @include abstracts.screen(md) {
+            margin-top: 12px;
+
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.home-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 42px auto 0;
+
+    width: 100%;
+    max-width: 1200px;
+
+    &__img-wrap--1,
+    &__img-wrap--5 {
+        position: relative;
+        padding-top: 30%;
+        width: 204px;
+        height: 100%;
+    }
+
+    &__img--1,
+    &__img--5 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        // height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__img-wrap--2,
+    &__img-wrap--4 {
+        position: relative;
+        padding-top: 40%;
+        width: 274px;
+        z-index: 10;
+
+        @include abstracts.screen(md) {
+            padding-top: 60%;
+        }
+    }
+
+    &__img-wrap--2,
+    &__img-wrap--4,
+    &__img-wrap--3,
+    &__img-wrap--5 {
+        margin-left: -30px;
+    }
+
+    &__img--2,
+    &__img--4 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        // height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__img-wrap--3 {
+        position: relative;
+        padding-top: 46%;
+        width: 385px;
+        z-index: 20;
+
+        @include abstracts.screen(md) {
+            padding-top: 70%;
+        }
+    }
+
+    &__img--3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        // height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.home-content {
+    margin: 42px 0 80px;
+    background: #bfbfbf;
+    backdrop-filter: blur(7.5px);
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+}
+
+.home-about {
+    padding: 46px 80px 56px 54px;
+
+    @include abstracts.screen(md) {
+        padding: 28px 16px;
+    }
+
+    &__label {
+        font-size: 2rem;
+        font-weight: 600;
+
+        color: #4d4d4d;
+
+        @include abstracts.screen(md) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__heading {
+        margin-top: 16px;
+        font-family: 'Philosopher', 'sans-serif';
+        font-size: 4.4rem;
+        font-weight: 700;
+        line-height: 1.1;
+
+        color: #003f7d;
+
+        @include abstracts.screen(md) {
+            margin-top: 6px;
+            font-size: 2rem;
+        }
+    }
+
+    &__separate {
+        margin-top: 16px;
+
+        width: 154px;
+        height: 6px;
+        border-radius: 999px;
+        background-color: #003f7d;
+
+        @include abstracts.screen(md) {
+            margin-top: 4px;
+            width: 134px;
+            height: 2px;
+        }
+    }
+
+    &__desc {
+        margin-top: 32px;
+        padding-left: 20px;
+
+        font-size: 2rem;
+        font-weight: 400px;
+        line-height: 1.4;
+
+        color: #333333;
+
+        border-left: 2px solid #6698ca;
+
+        @include abstracts.screen(md) {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            padding-left: 10px;
+        }
+    }
+
+    &__list {
+        margin-top: 14px;
+        margin-left: 32px;
+
+        list-style-type: disc;
+
+        @include abstracts.screen(md) {
+            margin-top: 8px;
+            margin-left: 22px;
+        }
+    }
+
+    &__media {
+        margin-left: -66px;
+
+        @include abstracts.screen(xxl) {
+            margin-top: 48px;
+            margin-left: 0px;
+        }
+
+        @include abstracts.screen(md) {
+            margin-top: 15px;
+            margin-left: 0px;
+        }
+
+        &-top,
+        &-bottom {
+            position: relative;
+
+            border-radius: 26px;
+        }
+
+        &-top {
+            padding-top: 47%;
+            width: 485px;
+
+            @include abstracts.screen(xxl) {
+                padding-top: 27%;
+            }
+
+            @include abstracts.screen(xl) {
+                padding-top: 34%;
+            }
+
+            @include abstracts.screen(lg) {
+                padding-top: 45%;
+                width: 450px;
+            }
+
+            @include abstracts.screen(md) {
+                padding-top: 31%;
+                width: 260px;
+            }
+
+            @include abstracts.screen(sm) {
+                padding-top: 34%;
+                width: 230px;
+            }
+        }
+
+        &-bottom {
+            top: -52px;
+            left: 67px;
+            padding-top: 50%;
+            width: 513px;
+
+            @include abstracts.screen(xxl) {
+                padding-top: 29%;
+            }
+
+            @include abstracts.screen(xl) {
+                padding-top: 36%;
+            }
+
+            @include abstracts.screen(lg) {
+                padding-top: 52%;
+                width: 490px;
+            }
+
+            @include abstracts.screen(md) {
+                padding-top: 33%;
+                width: 280px;
+            }
+
+            @include abstracts.screen(sm) {
+                padding-top: 30%;
+                width: 240px;
+            }
+        }
+
+        &-img-top,
+        &-img-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 22px;
+            object-fit: contain;
+            border: 5px solid #fff;
+            box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        &-img-bottom {
+            border-radius: 20px;
+        }
+    }
+
+    &__btn {
+        margin-top: 32px;
+
+        @include abstracts.screen(xxl) {
+            margin-top: 0px;
+        }
+
+        @include abstracts.screen(xl) {
+            margin-top: 0px;
+            min-width: 100%;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+            height: 40px;
+            margin-top: 0px;
+            min-width: 100%;
+        }
+    }
+}
+
+.home-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #4375a6;
+    padding: 40px 190px 68px;
+
+    @include abstracts.screen(lg) {
+        padding: 40px 60px 68px;
+    }
+
+    @include abstracts.screen(md) {
+        padding: 28px 16px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__label {
+        font-size: 2rem;
+        font-weight: 500;
+
+        color: #fff;
+
+        @include abstracts.screen(md) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__heading {
+        margin-top: 16px;
+
+        font-family: 'Philosopher', 'sans-serif';
+        font-size: 4.4rem;
+        font-weight: 700;
+
+        color: #003f7d;
+
+        @include abstracts.screen(md) {
+            margin-top: 4px;
+            font-size: 2rem;
+        }
+    }
+
+    &__separate {
+        margin-top: 16px;
+
+        width: 130px;
+        height: 6px;
+
+        background: #003f7d;
+        border-radius: 999px;
+
+        @include abstracts.screen(md) {
+            margin-top: 4px;
+        }
+    }
+
+    &__desc {
+        margin-top: 16px;
+
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+        line-height: 1.31;
+
+        color: #fff;
+
+        @include abstracts.screen(md) {
+            margin-top: 12px;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__list {
+        margin-top: 37px;
+
+        @include abstracts.screen(md) {
+            margin-top: 12px;
+        }
+    }
+
+    &__btn {
+        margin-top: 32px;
+
+        @include abstracts.screen(xl) {
+            min-width: 100%;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+            height: 40px;
+            margin-top: 16px;
+        }
+    }
+}
+
+.home-service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 40px 190px;
+
+    @include abstracts.screen(lg) {
+        padding: 40px 60px;
+    }
+
+    @include abstracts.screen(md) {
+        padding: 30px 16px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__label {
+        font-size: 2rem;
+        font-weight: 500;
+
+        color: #4d4d4d;
+
+        @include abstracts.screen(md) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__heading {
+        margin-top: 16px;
+
+        font-family: 'Philosopher', 'sans-serif';
+        font-size: 4.4rem;
+        font-weight: 700;
+
+        color: #003f7d;
+
+        @include abstracts.screen(md) {
+            margin-top: 4px;
+            font-size: 2rem;
+        }
+    }
+
+    &__separate {
+        margin-top: 16px;
+
+        width: 220px;
+        height: 6px;
+
+        background: #003f7d;
+        border-radius: 999px;
+
+        @include abstracts.screen(md) {
+            width: 80px;
+            height: 2px;
+            margin-top: 4px;
+        }
+    }
+
+    &__desc {
+        margin-top: 16px;
+
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+        line-height: 1.31;
+
+        color: #4d4d4d;
+
+        @include abstracts.screen(md) {
+            margin-top: 14px;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__list {
+        margin-top: 32px;
+
+        @include abstracts.screen(md) {
+            margin-top: 12px;
+        }
+    }
+}
+
+.service-card {
+    background-color: #fff;
+    height: 100%;
+    border-radius: 12px;
+
+    &__img-wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 54%;
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+    }
+
+    &__info {
+        text-align: center;
+
+        padding: 24px 16px 40px;
+
+        @include abstracts.screen(md) {
+            padding: 16px;
+        }
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0054a6;
+
+        @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__desc {
+        margin-top: 12px;
+
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.31;
+
+        color: #666666;
+
+        @include abstracts.screen(md) {
+            margin-top: 8px;
+            font-size: 1.4rem;
+        }
+    }
+}

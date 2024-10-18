@@ -1,15 +1,16 @@
 import { Header } from '~/components';
 import Footer from '~/components/Footer';
+import Intro from '~/components/Intro';
 
-type MainLayoutProps = {
+interface MainLayoutProps {
     children: React.ReactElement;
-};
+}
 
 function MainLayout({ children }: MainLayoutProps) {
     return (
         <main>
             <Header />
-            {children}
+            <Intro>{children}</Intro>
             <Footer />
         </main>
     );

@@ -1,0 +1,28 @@
+@use '../Styles//abstracts';
+
+.primary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 28px;
+
+    background-color: #0054a6;
+    color: #fff;
+    border-radius: 6px;
+
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    transition: background-color 0.4s;
+
+    @include abstracts.screen(md) {
+        height: 40px;
+
+        font-size: 1.4rem;
+    }
+
+    &:hover {
+        background-color: #3376b8;
+    }
+}

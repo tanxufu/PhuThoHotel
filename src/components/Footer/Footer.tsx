@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
 import classNames from 'classnames/bind';
-import icon from '~/assets/icon';
+import icon from '~/assets/icons';
 
 const cx = classNames.bind(styles);
 
@@ -40,7 +40,11 @@ function Footer() {
         <footer className={cx('footer')}>
             <div className={cx('container')}>
                 <div className={cx('footer__inner')}>
-                    <div className={cx('row gx-5 gy-xxl-4 gy-lg-4 gy-md-3')}>
+                    <div
+                        className={cx(
+                            'row gx-5 gx-md-2 gy-xxl-4 gy-lg-4 gy-md-3'
+                        )}
+                    >
                         <div className={cx('col-4 col-xxl-6 col-lg-12')}>
                             <div className={cx('footer__company')}>
                                 <div className={cx('footer__top')}>

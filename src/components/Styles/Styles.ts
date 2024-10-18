@@ -1,8 +1,8 @@
 import './Styles.scss';
 
-type StylesProps = {
+interface StylesProps {
     children: React.ReactElement;
-};
+}
 
 function Styles({ children }: StylesProps) {
     return children;
