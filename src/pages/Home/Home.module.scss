@@ -342,10 +342,7 @@
         }
 
         @include abstracts.screen(md) {
-            font-size: 1.4rem;
-            height: 40px;
             margin-top: 0px;
-            min-width: 100%;
         }
     }
 }
@@ -444,8 +441,6 @@
         }
 
         @include abstracts.screen(md) {
-            font-size: 1.4rem;
-            height: 40px;
             margin-top: 16px;
         }
     }

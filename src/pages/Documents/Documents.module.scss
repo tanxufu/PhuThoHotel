@@ -1,0 +1,332 @@
+@use '../../components/Styles/abstracts';
+
+.documents {
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 48px 0 200px;
+
+        @include abstracts.screen(lg) {
+            padding: 24px 16px 126px;
+        }
+    }
+
+    &__show {
+        margin-top: 48px;
+        max-width: 774px;
+
+        @include abstracts.screen(lg) {
+            max-width: 574px;
+        }
+    }
+
+    &__img-wrap {
+        position: relative;
+        padding-top: 147%;
+        width: 177px;
+
+        @include abstracts.screen(xl) {
+            padding-top: 126%;
+            width: 147px;
+        }
+
+        @include abstracts.screen(lg) {
+            padding-top: 131%;
+            width: 157px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding-top: 131%;
+            width: 104px;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    &__main {
+        margin: 68px 0 80px;
+        padding: 48px 54px;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.2);
+
+        @include abstracts.screen(md) {
+            padding: 24px 32px;
+            margin: 68px 0 48px;
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include abstracts.screen(md) {
+            justify-content: start;
+            gap: 8px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        margin-top: 20px;
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-top: 32px;
+
+        @include abstracts.screen(lg) {
+            justify-content: center;
+        }
+    }
+
+    &__page-show {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.6rem;
+
+        &--input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px 8px;
+
+            width: 36px;
+            height: 32px;
+
+            font-size: 1.6rem;
+            font-weight: 600;
+
+            color: #0054a6;
+
+            border-radius: 4px;
+            border: 1px solid #0054a6;
+        }
+    }
+}
+
+.documents-act {
+    &__name {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #0054a6;
+    }
+}
+
+.documents-datepicker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 12px;
+
+    &__select {
+        font-size: 1.6rem;
+        height: 40px;
+    }
+}
+
+.documents-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 12px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+
+    @include abstracts.screen(md) {
+        margin-top: 0;
+        width: 100%;
+        height: 36px;
+        margin-left: -8px;
+    }
+
+    @include abstracts.screen(sm) {
+        width: 236px;
+    }
+
+    &__input {
+        padding: 2px 12px;
+
+        font-size: 1.6rem;
+        color: #a3a3a3;
+
+        @include abstracts.screen(sm) {
+            padding: 2px 12px 2px 4px;
+        }
+    }
+
+    &__time {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.documents-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+
+    margin-left: auto;
+}
+
+.documents-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 24px;
+    height: 44px;
+    background: #e6eef7;
+    border-radius: 8px;
+
+    @include abstracts.screen(lg) {
+        gap: 12px;
+        padding: 18px;
+        height: 82px;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0px 3.786px 18.93px 0px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(7.5px);
+    }
+
+    @include abstracts.screen(md) {
+        padding: 16px;
+        height: 72px;
+    }
+
+    &__stt,
+    &__name,
+    &__create,
+    &__act {
+        display: flex;
+
+        align-items: center;
+
+        font-size: 1.6rem;
+        line-height: 1.31;
+    }
+
+    &__name {
+        @include abstracts.screen(lg) {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #003f7d;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+            width: 245px;
+            line-height: 1;
+        }
+    }
+
+    &__create {
+        @include abstracts.screen(lg) {
+            font-size: 1.4rem;
+
+            color: #4d4d4d;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+    }
+
+    &__act {
+        @include abstracts.screen(lg) {
+            margin-top: -20px;
+            margin-left: 20px;
+
+            &-logo {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @include abstracts.screen(md) {
+            margin-top: -15px;
+
+            &-logo {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    }
+
+    &__stt,
+    &__act {
+        justify-content: center;
+    }
+
+    &--header {
+        background: #0054a6;
+        height: 44px;
+        color: #fff;
+        font-size: 1.8rem;
+        font-weight: 600;
+        border-radius: 8px;
+
+        padding: 12px 24px;
+    }
+}
+
+.paginate {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+    }
+
+    &__page {
+        width: 32px;
+        height: 32px;
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-align: center;
+        color: #4d4d4d;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &--active {
+            background: #0054a6;
+            color: #fff;
+            border-radius: 4px;
+        }
+    }
+}

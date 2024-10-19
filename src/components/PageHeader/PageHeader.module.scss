@@ -1,0 +1,47 @@
+@use '../../components/Styles/abstracts';
+
+.page-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // padding: 36px 114px;
+    width: 382px;
+    height: 98px;
+    clip-path: polygon(12% 0, 88% 0, 100% 50%, 88% 100%, 12% 100%, 0% 50%);
+
+    // backdrop-filter: blur(2px);
+    // background: #fff;
+    background: rgba(255, 255, 255, 0.2);
+
+    @include abstracts.screen(md) {
+        width: 254px;
+        height: 64px;
+    }
+
+    &__custom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 378px;
+        height: 94px;
+
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 5px 5px 16px 0px rgba(255, 255, 255, 0.25) inset;
+        clip-path: polygon(12% 0, 88% 0, 100% 50%, 88% 100%, 12% 100%, 0% 50%);
+
+        color: #0054a6;
+
+        font-family: 'Philosopher', 'sans-serif';
+        font-size: 4rem;
+        font-weight: 700;
+
+        @include abstracts.screen(md) {
+            width: 250px;
+            height: 60px;
+
+            font-size: 2.6rem;
+        }
+    }
+}
