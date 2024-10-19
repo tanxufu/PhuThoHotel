@@ -7,11 +7,12 @@ const cx = classNames.bind(styles);
 interface PostCardProps {
     host: string;
     title: string;
-    desc: string;
+    desc?: string;
     tags: { name: string }[];
     view: string;
     postDate: string;
     image: string;
+    mini?: boolean;
 }
 
 function PostCard({
@@ -21,31 +22,83 @@ function PostCard({
     tags,
     view,
     postDate,
-    image
+    image,
+    mini = false
 }: PostCardProps) {
     return (
-        <article className={cx('postcard')}>
+        <article className={cx('postcard', { 'postcard--mini': mini })}>
             <Link to='#'>
-                <div className={cx('postcard__img-wrap')}>
-                    <img src={image} alt='' className={cx('postcard__img')} />
+                <div
+                    className={cx('postcard__img-wrap', {
+                        'postcard--mini__img-wrap': mini
+                    })}
+                >
+                    <img
+                        src={image}
+                        alt=''
+                        className={cx('postcard__img', {
+                            'postcard--mini__img': mini
+                        })}
+                    />
                 </div>
             </Link>
-            <div className={cx('postcard__info')}>
-                <div className={cx('postcard__label')}>
-                    <p className={cx('postcard__host')}>{host}</p>
-                    <div className={cx('postcard__active')}></div>
+            <div
+                className={cx('postcard__info', {
+                    'postcard--mini__info': mini
+                })}
+            >
+                <div
+                    className={cx('postcard__label', {
+                        'postcard--mini__label': mini
+                    })}
+                >
+                    <p
+                        className={cx('postcard__host', {
+                            'postcard--mini__host': mini
+                        })}
+                    >
+                        {host}
+                    </p>
+                    <div
+                        className={cx('postcard__active', {
+                            'postcard--mini__active': mini
+                        })}
+                    ></div>
                 </div>
 
                 <Link to='#'>
-                    <h3 className={cx('postcard__title')}>{title}</h3>
+                    <h3
+                        className={cx('postcard__title', {
+                            'postcard--mini__title': mini
+                        })}
+                    >
+                        {title}
+                    </h3>
                 </Link>
 
-                <p className={cx('postcard__desc')}>{desc}</p>
+                {desc && (
+                    <p
+                        className={cx('postcard__desc', {
+                            'postcard--mini__desc': mini
+                        })}
+                    >
+                        {desc}
+                    </p>
+                )}
 
-                <div className={cx('postcard__tags')}>
+                <div
+                    className={cx('postcard__tags', {
+                        'postcard--mini__tags': mini
+                    })}
+                >
                     {tags.map((tag, index) => {
                         return (
-                            <div key={index} className={cx('postcard__tag')}>
+                            <div
+                                key={index}
+                                className={cx('postcard__tag', {
+                                    'postcard--mini__tag': mini
+                                })}
+                            >
                                 {tag.name}
                             </div>
                         );
@@ -56,10 +109,30 @@ function PostCard({
                     <div className={cx('postcard__tag')}>Tin tức</div> */}
                 </div>
 
-                <div className={cx('postcard__data')}>
-                    <p className={cx('postcard__view')}>{view} lượt xem</p>
-                    <div className={cx('postcard__dot')}></div>
-                    <p className={cx('postcard__view')}>{postDate}</p>
+                <div
+                    className={cx('postcard__data', {
+                        'postcard--mini__data': mini
+                    })}
+                >
+                    <p
+                        className={cx('postcard__view', {
+                            'postcard--mini__view': mini
+                        })}
+                    >
+                        {view} lượt xem
+                    </p>
+                    <div
+                        className={cx('postcard__dot', {
+                            'postcard--mini__dot': mini
+                        })}
+                    ></div>
+                    <p
+                        className={cx('postcard__view', {
+                            'postcard--mini__view': mini
+                        })}
+                    >
+                        {postDate}
+                    </p>
                 </div>
             </div>
         </article>

@@ -12,7 +12,17 @@ const icon = {
     download: require('./download.svg').default,
     paginate_next: require('./paginate_next.svg').default,
     paginate_prev_disable: require('./paginate_prev_disable.svg').default,
-    filter: require('./filter.svg').default
+    filter: require('./filter.svg').default,
+    prev_next: require('./prev_next.svg').default,
+    prev_prev: require('./prev_prev.svg').default,
+    logo_mini: require('./logo_mini.svg').default,
+    light: require('./light.svg').default,
+    news: require('./news.svg').default,
+    event: require('./event.svg').default,
+    notification: require('./notification.svg').default,
+    file: require('./file.svg').default,
+    group: require('./group.svg').default,
+    sort: require('./sort.svg').default
 };
 
 export default icon;
