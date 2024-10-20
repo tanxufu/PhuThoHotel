@@ -291,6 +291,10 @@
 .blog-main {
     margin-top: 24px;
     margin-bottom: 88px;
+
+    @include abstracts.screen(md) {
+        margin-bottom: 48px;
+    }
 }
 
 .blog-topic {

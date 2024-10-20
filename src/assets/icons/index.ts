@@ -22,7 +22,13 @@ const icon = {
     notification: require('./notification.svg').default,
     file: require('./file.svg').default,
     group: require('./group.svg').default,
-    sort: require('./sort.svg').default
+    sort: require('./sort.svg').default,
+    card: require('./card.svg').default,
+    bag: require('./bag.svg').default,
+    location: require('./location.svg').default,
+    location_grey: require('./location_grey.svg').default,
+    clock_grey: require('./clock_grey.svg').default,
+    damsen_logo: require('./damsen_logo.svg').default
 };
 
 export default icon;
