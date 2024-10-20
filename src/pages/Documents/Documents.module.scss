@@ -54,7 +54,7 @@
     }
 
     &__main {
-        margin: 68px 0 80px;
+        margin-bottom: 80px;
         padding: 48px 54px;
         border-radius: 20px;
         background: #fff;
@@ -62,7 +62,7 @@
 
         @include abstracts.screen(md) {
             padding: 24px 32px;
-            margin: 68px 0 48px;
+            margin-bottom: 48px;
         }
     }
 

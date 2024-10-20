@@ -152,12 +152,23 @@
     }
 }
 
+.career-paginate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .paginate {
     display: flex;
     align-items: center;
     justify-content: center;
 
+    padding: 8px 4px;
     margin-top: 40px;
+    max-width: 290px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(7.5px);
 
     gap: 8px;
 

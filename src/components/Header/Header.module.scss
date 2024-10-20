@@ -1,13 +1,14 @@
 @use '../Styles//abstracts';
 
 .header {
-    border-bottom: 1px solid #fff;
-    background: #092e53;
-    font-family: 'Philosopher', 'sans-serif';
+    position: sticky;
+    top: 0;
+    z-index: 9999;
 
-    @include abstracts.screen(lg) {
-        background: #2d5276;
-    }
+    border-bottom: 1px solid #fff;
+    background: rgba(0, 47, 92, 0.8);
+    backdrop-filter: blur(7.5px);
+    font-family: 'Philosopher', 'sans-serif';
 }
 
 .topbar {
@@ -44,6 +45,8 @@
             margin-right: 0;
             padding: 124px 65px 140px;
             background: #2d5276;
+
+            height: 100vh;
         }
 
         @include abstracts.screen(md) {

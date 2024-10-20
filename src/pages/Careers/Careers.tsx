@@ -333,47 +333,49 @@ function Careers() {
                                 </div>
                             </div>
 
-                            <div className={cx('paginate')}>
-                                <button
-                                    className={cx(
-                                        'paginate__btn',
-                                        'paginate__btn--disable'
-                                    )}
-                                >
-                                    <img
-                                        src={icon.paginate_prev_disable}
-                                        alt=''
-                                    />
-                                </button>
+                            <div className={cx('career-paginate')}>
+                                <div className={cx('paginate')}>
+                                    <button
+                                        className={cx(
+                                            'paginate__btn',
+                                            'paginate__btn--disable'
+                                        )}
+                                    >
+                                        <img
+                                            src={icon.paginate_prev_disable}
+                                            alt=''
+                                        />
+                                    </button>
 
-                                <button
-                                    className={cx(
-                                        'paginate__page',
-                                        'paginate__page--active'
-                                    )}
-                                >
-                                    1
-                                </button>
+                                    <button
+                                        className={cx(
+                                            'paginate__page',
+                                            'paginate__page--active'
+                                        )}
+                                    >
+                                        1
+                                    </button>
 
-                                <button className={cx('paginate__page')}>
-                                    2
-                                </button>
+                                    <button className={cx('paginate__page')}>
+                                        2
+                                    </button>
 
-                                <button className={cx('paginate__page')}>
-                                    3
-                                </button>
+                                    <button className={cx('paginate__page')}>
+                                        3
+                                    </button>
 
-                                <button className={cx('paginate__page')}>
-                                    ...
-                                </button>
+                                    <button className={cx('paginate__page')}>
+                                        ...
+                                    </button>
 
-                                <button className={cx('paginate__page')}>
-                                    10
-                                </button>
+                                    <button className={cx('paginate__page')}>
+                                        10
+                                    </button>
 
-                                <button className={cx('paginate__btn')}>
-                                    <img src={icon.paginate_next} alt='' />
-                                </button>
+                                    <button className={cx('paginate__btn')}>
+                                        <img src={icon.paginate_next} alt='' />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
