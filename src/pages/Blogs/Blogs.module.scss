@@ -27,6 +27,7 @@
 
 .blog-slider {
     border-radius: 12px;
+    height: 100%;
 
     &__img-wrap {
         position: relative;
@@ -49,10 +50,7 @@
     }
 
     &__content {
-        display: flex;
-        justify-content: space-between;
         min-height: 100%;
-        align-items: stretch;
 
         background: #fff;
         padding: 24px 20px;
@@ -63,10 +61,6 @@
         }
     }
 
-    &__info {
-        max-width: 845px;
-    }
-
     &__heading {
         color: #0054a6;
 
@@ -75,7 +69,6 @@
         font-weight: 700;
 
         @include abstracts.screen(md) {
-            max-width: 252px;
             font-size: 1.6rem;
         }
     }
@@ -88,65 +81,6 @@
         line-height: 1.5;
 
         color: #4d4d4d;
-    }
-
-    &__act {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    &__move {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 4px;
-    }
-
-    &__btn-prev,
-    &__btn-next {
-        @include abstracts.screen(md) {
-            height: 16px;
-            width: 16px;
-        }
-    }
-
-    &__paginate {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: auto;
-
-        gap: 12px;
-
-        @include abstracts.screen(xl) {
-            gap: 8px;
-        }
-    }
-
-    &__page {
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-
-        border: 1px solid #0054a6;
-
-        @include abstracts.screen(md) {
-            height: 8px;
-            width: 8px;
-        }
-
-        &--active {
-            height: 16px;
-            width: 26px;
-
-            background: url('../../assets/icons/logo_mini.svg');
-
-            @include abstracts.screen(md) {
-                height: 8px;
-                width: 8px;
-            }
-        }
     }
 }
 
@@ -310,11 +244,38 @@
         padding: 20px 14px;
     }
 
+    @include abstracts.screen(xl) {
+        position: fixed;
+        z-index: 99;
+        inset: 0 0% 0 0;
+
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+
+        margin-right: 0;
+        padding: 164px 24px;
+        background: #fff;
+
+        height: 100vh;
+        overflow-y: scroll;
+    }
+
+    @include abstracts.screen(md) {
+        padding: 84px 24px;
+    }
+
     &__heading {
         font-size: 2.4rem;
         font-weight: 600;
         text-align: center;
         color: #0054a6;
+        text-transform: uppercase;
+
+        @include abstracts.screen(xl) {
+            text-align: left;
+            text-transform: none;
+        }
     }
 
     &__list {
@@ -354,6 +315,14 @@
             filter: brightness(0) saturate(100%) invert(99%) sepia(100%)
                 saturate(0%) hue-rotate(337deg) brightness(107%) contrast(100%);
         }
+    }
+
+    &__act {
+        margin-top: 24px;
+    }
+
+    &__btn {
+        min-height: 44px;
     }
 }
 

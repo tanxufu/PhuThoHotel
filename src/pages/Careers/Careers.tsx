@@ -1,12 +1,61 @@
+import { useEffect, useState } from 'react';
+
 import PageHeader from '~/components/PageHeader';
 import styles from './Careers.module.scss';
 import classNames from 'classnames/bind';
 import icon from '~/assets/icons';
 import CareerCard from '~/components/CareerCard';
+import { useFetchCareersPaginatedQuery } from '~/apis/careers.api';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function Careers() {
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(9);
+    const [name, setName] = useState<string | undefined>();
+    const [position, setPosition] = useState<string | undefined>();
+    const [address, setAddress] = useState<string | undefined>();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
+        const updateLimit = () => {
+            const width = window.innerWidth;
+            if (width <= 1200) {
+                setLimit(6);
+            } else {
+                setLimit(9);
+            }
+        };
+
+        updateLimit();
+        window.addEventListener('resize', updateLimit);
+
+        return () => window.removeEventListener('resize', updateLimit);
+    }, [page]);
+
+    const { data: careers } = useFetchCareersPaginatedQuery({
+        page,
+        limit,
+        name,
+        position,
+        address
+    });
+
+    console.log(careers);
+    if (!careers) {
+        return <div>No data available</div>;
+    }
+
+    const totalPages = Math.ceil(careers.total / limit);
+
+    const handlePageChange = (newPage: number) => {
+        if (newPage >= 1 && newPage <= totalPages) {
+            setPage(newPage);
+        }
+    };
+
     return (
         <div className={cx('career')}>
             <div className={cx('container')}>
@@ -54,6 +103,7 @@ function Careers() {
                                         'd-lg-none'
                                     )}
                                 >
+                                    {/* filter  */}
                                     <div className={cx('career-category')}>
                                         <div
                                             className={cx(
@@ -81,52 +131,153 @@ function Careers() {
                                                 'career-category__list'
                                             )}
                                         >
-                                            <li
-                                                className={cx(
-                                                    'career-category__item',
-                                                    'career-category__item--active'
-                                                )}
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (name === 'bán hàng') {
+                                                        setName(undefined);
+                                                    } else {
+                                                        setName('bán hàng');
+                                                    }
+                                                }}
                                             >
-                                                Hướng dẫn viên
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                name ===
+                                                                'bán hàng'
+                                                        }
+                                                    )}
+                                                >
+                                                    Bán hàng
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (name === 'kinh doanh') {
+                                                        setName(undefined);
+                                                    } else {
+                                                        setName('kinh doanh');
+                                                    }
+                                                }}
                                             >
-                                                Kinh doanh
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                name ===
+                                                                'kinh doanh'
+                                                        }
+                                                    )}
+                                                >
+                                                    Kinh doanh
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        name ===
+                                                        'kỹ sư xây dựng'
+                                                    ) {
+                                                        setName(undefined);
+                                                    } else {
+                                                        setName(
+                                                            'kỹ sư xây dựng'
+                                                        );
+                                                    }
+                                                }}
                                             >
-                                                Kỹ sư xây dựng
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                name ===
+                                                                'kỹ sư xây dựng'
+                                                        }
+                                                    )}
+                                                >
+                                                    Kỹ sư xây dựng
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (name === 'kế toán') {
+                                                        setName(undefined);
+                                                    } else {
+                                                        setName('kế toán');
+                                                    }
+                                                }}
                                             >
-                                                Nhân viên kế toán
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                name ===
+                                                                'kế toán'
+                                                        }
+                                                    )}
+                                                >
+                                                    Nhân viên kế toán
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (name === 'kỹ thuật') {
+                                                        setName(undefined);
+                                                    } else {
+                                                        setName('kỹ thuật');
+                                                    }
+                                                }}
                                             >
-                                                Nhân viên kỹ thuật
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                name ===
+                                                                'kỹ thuật'
+                                                        }
+                                                    )}
+                                                >
+                                                    Nhân viên kỹ thuật
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (name === 'phục vụ') {
+                                                        setName(undefined);
+                                                    } else {
+                                                        setName('phục vụ');
+                                                    }
+                                                }}
                                             >
-                                                Nhân viên phục vụ
-                                            </li>
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                name ===
+                                                                'phục vụ'
+                                                        }
+                                                    )}
+                                                >
+                                                    Nhân viên phục vụ
+                                                </li>
+                                            </Link>
                                         </ul>
                                     </div>
 
+                                    {/* filter  */}
                                     <div className={cx('career-category')}>
                                         <div
                                             className={cx(
@@ -154,38 +305,116 @@ function Careers() {
                                                 'career-category__list'
                                             )}
                                         >
-                                            <li
-                                                className={cx(
-                                                    'career-category__item',
-                                                    'career-category__item--active'
-                                                )}
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        position ===
+                                                        'bán thời gian'
+                                                    ) {
+                                                        setPosition(undefined);
+                                                    } else {
+                                                        setPosition(
+                                                            'bán thời gian'
+                                                        );
+                                                    }
+                                                }}
                                             >
-                                                Bán thời gian
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                position ===
+                                                                'bán thời gian'
+                                                        }
+                                                    )}
+                                                >
+                                                    Bán thời gian
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        position ===
+                                                        'chính thức'
+                                                    ) {
+                                                        setPosition(undefined);
+                                                    } else {
+                                                        setPosition(
+                                                            'chính thức'
+                                                        );
+                                                    }
+                                                }}
                                             >
-                                                Nhân viên chính thức
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                position ===
+                                                                'chính thức'
+                                                        }
+                                                    )}
+                                                >
+                                                    Nhân viên chính thức
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        position === 'theo ca'
+                                                    ) {
+                                                        setPosition(undefined);
+                                                    } else {
+                                                        setPosition('theo ca');
+                                                    }
+                                                }}
                                             >
-                                                Theo ca
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                position ===
+                                                                'theo ca'
+                                                        }
+                                                    )}
+                                                >
+                                                    Theo ca
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        position === 'thời vụ'
+                                                    ) {
+                                                        setPosition(undefined);
+                                                    } else {
+                                                        setPosition('thời vụ');
+                                                    }
+                                                }}
                                             >
-                                                Thực tập
-                                            </li>
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                position ===
+                                                                'thời vụ'
+                                                        }
+                                                    )}
+                                                >
+                                                    Thời vụ
+                                                </li>
+                                            </Link>
                                         </ul>
                                     </div>
 
+                                    {/* filter  */}
                                     <div className={cx('career-category')}>
                                         <div
                                             className={cx(
@@ -213,63 +442,198 @@ function Careers() {
                                                 'career-category__list'
                                             )}
                                         >
-                                            <li
-                                                className={cx(
-                                                    'career-category__item',
-                                                    'career-category__item--active'
-                                                )}
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (address === 'cà phê') {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('cà phê');
+                                                    }
+                                                }}
                                             >
-                                                Cà Phê Vườn Đá
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'cà phê'
+                                                        }
+                                                    )}
+                                                >
+                                                    Cà Phê Vườn Đá
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        address === 'nhà hàng'
+                                                    ) {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('nhà hàng');
+                                                    }
+                                                }}
                                             >
-                                                NH Thủy Tạ Đầm Sen
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'nhà hàng'
+                                                        }
+                                                    )}
+                                                >
+                                                    NH Thủy Tạ Đầm Sen
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        address === 'công viên'
+                                                    ) {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('công viên');
+                                                    }
+                                                }}
                                             >
-                                                CVVH Đầm Sen
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'công viên'
+                                                        }
+                                                    )}
+                                                >
+                                                    CVVH Đầm Sen
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        address === 'ngọc lan'
+                                                    ) {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('ngọc lan');
+                                                    }
+                                                }}
                                             >
-                                                Khách sạn Ngọc Lan
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'ngọc lan'
+                                                        }
+                                                    )}
+                                                >
+                                                    Khách sạn Ngọc Lan
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (address === 'phú thọ') {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('phú thọ');
+                                                    }
+                                                }}
                                             >
-                                                Khách sạn Phú Thọ
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'phú thọ'
+                                                        }
+                                                    )}
+                                                >
+                                                    Khách sạn Phú Thọ
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (address === 'vàm sát') {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('vàm sát');
+                                                    }
+                                                }}
                                             >
-                                                K Sinh Thái Vàm Sát
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'vàm sát'
+                                                        }
+                                                    )}
+                                                >
+                                                    K Sinh Thái Vàm Sát
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (
+                                                        address === 'trung tâm'
+                                                    ) {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('trung tâm');
+                                                    }
+                                                }}
                                             >
-                                                Trung tâm DVDL Đầm Sen
-                                            </li>
-                                            <li
-                                                className={cx(
-                                                    'career-category__item'
-                                                )}
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'trung tâm'
+                                                        }
+                                                    )}
+                                                >
+                                                    Trung tâm DVDL Đầm Sen
+                                                </li>
+                                            </Link>
+                                            <Link
+                                                to='#'
+                                                onClick={() => {
+                                                    if (address === 'tourist') {
+                                                        setAddress(undefined);
+                                                    } else {
+                                                        setAddress('tourist');
+                                                    }
+                                                }}
                                             >
-                                                Phuthotourist
-                                            </li>
+                                                <li
+                                                    className={cx(
+                                                        'career-category__item',
+                                                        {
+                                                            'career-category__item--active':
+                                                                address ===
+                                                                'tourist'
+                                                        }
+                                                    )}
+                                                >
+                                                    Phuthotourist
+                                                </li>
+                                            </Link>
                                         </ul>
                                     </div>
                                 </div>
@@ -296,83 +660,78 @@ function Careers() {
                                     'row row-cols-3 row-cols-xl-2 row-cols-md-1 gy-2 gx-2'
                                 )}
                             >
-                                <div className={cx('col')}>
-                                    <CareerCard active={true} />
-                                </div>
-
-                                <div className={cx('col')}>
-                                    <CareerCard />
-                                </div>
-
-                                <div className={cx('col')}>
-                                    <CareerCard active={true} />
-                                </div>
-
-                                <div className={cx('col')}>
-                                    <CareerCard active={true} />
-                                </div>
-
-                                <div className={cx('col')}>
-                                    <CareerCard active={true} />
-                                </div>
-
-                                <div className={cx('col')}>
-                                    <CareerCard />
-                                </div>
-
-                                <div className={cx('col')}>
-                                    <CareerCard />
-                                </div>
-
-                                <div className={cx('col')}>
-                                    <CareerCard active={true} />
-                                </div>
-
-                                <div className={cx('col d-xl-none')}>
-                                    <CareerCard />
-                                </div>
+                                {careers.careers.map((career) => {
+                                    return (
+                                        <div
+                                            key={career.id}
+                                            className={cx('col')}
+                                        >
+                                            <CareerCard
+                                                id={career.id}
+                                                active={true}
+                                                image={career.image}
+                                                name={career.name}
+                                                position={career.position}
+                                                address={career.address}
+                                                postedDate={career.postedDate}
+                                                jobDescription={
+                                                    career.jobDescription
+                                                }
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
 
                             <div className={cx('career-paginate')}>
                                 <div className={cx('paginate')}>
                                     <button
-                                        className={cx(
-                                            'paginate__btn',
-                                            'paginate__btn--disable'
-                                        )}
+                                        className={cx('paginate__btn', {
+                                            'paginate__btn--disable': page === 1
+                                        })}
+                                        onClick={() =>
+                                            handlePageChange(page - 1)
+                                        }
+                                        disabled={page === 1}
                                     >
                                         <img
-                                            src={icon.paginate_prev_disable}
+                                            src={icon.paginate_next}
                                             alt=''
+                                            style={{ rotate: '180deg' }}
                                         />
                                     </button>
 
+                                    {[...Array(totalPages)].map((_, index) => {
+                                        const pageNum = index + 1;
+                                        return (
+                                            <button
+                                                key={pageNum}
+                                                className={cx(
+                                                    'paginate__page',
+                                                    {
+                                                        'paginate__page--active':
+                                                            pageNum === page
+                                                    }
+                                                )}
+                                                onClick={() =>
+                                                    handlePageChange(pageNum)
+                                                }
+                                            >
+                                                {pageNum}
+                                            </button>
+                                        );
+                                    })}
+
                                     <button
-                                        className={cx(
-                                            'paginate__page',
-                                            'paginate__page--active'
-                                        )}
+                                        className={cx('paginate__btn', {
+                                            'paginate__btn--disable':
+                                                page === totalPages
+                                        })}
+                                        onClick={() =>
+                                            handlePageChange(page + 1)
+                                        }
+                                        disabled={page === totalPages}
                                     >
-                                        1
-                                    </button>
-
-                                    <button className={cx('paginate__page')}>
-                                        2
-                                    </button>
-
-                                    <button className={cx('paginate__page')}>
-                                        3
-                                    </button>
-
-                                    <button className={cx('paginate__page')}>
-                                        ...
-                                    </button>
-
-                                    <button className={cx('paginate__page')}>
-                                        10
-                                    </button>
-
-                                    <button className={cx('paginate__btn')}>
                                         <img src={icon.paginate_next} alt='' />
                                     </button>
                                 </div>

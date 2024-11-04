@@ -4,6 +4,8 @@ import Home from '~/pages/Home';
 import Careers from './pages/Careers';
 import Documents from './pages/Documents';
 import Blogs from './pages/Blogs';
+import BlogDetails from './pages/BlogDetails';
+import CareerDetails from './pages/CareerDetails';
 
 export default function useRouteElements() {
     const routeElement = useRoutes([
@@ -36,6 +38,22 @@ export default function useRouteElements() {
             element: (
                 <MainLayout>
                     <Careers />
+                </MainLayout>
+            )
+        },
+        {
+            path: '/blog-details/',
+            element: (
+                <MainLayout>
+                    <BlogDetails />
+                </MainLayout>
+            )
+        },
+        {
+            path: '/career-details',
+            element: (
+                <MainLayout>
+                    <CareerDetails />
                 </MainLayout>
             )
         }

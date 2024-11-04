@@ -1,5 +1,6 @@
 import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
+import { useFetchRecentBlogsQuery } from '~/apis/blogs.api';
 import image from '~/assets/images';
 import Button from '~/components/Button';
 import PostCard from '~/components/PostCard';
@@ -7,6 +8,8 @@ import PostCard from '~/components/PostCard';
 const cx = classNames.bind(styles);
 
 function Home() {
+    const { data: recentBlogsData } = useFetchRecentBlogsQuery(3);
+
     return (
         <div className={cx('home')}>
             {/* intro */}
@@ -219,57 +222,31 @@ function Home() {
                                     'row row-cols-3 row-cols-xl-1 gx-2 gy-xl-3 gy-md-2'
                                 )}
                             >
-                                <div className={cx('col')}>
-                                    <PostCard
-                                        host='Admin'
-                                        title='Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor Fullcolor'
-                                        desc='Công ty Cổ phần Dịch vụ Du lịch Phú Thọ thông báo đến các nhà thầu tham gia chào hàng cạnh tranh Gói thầu: Cung cấp, lắp đặt 02 màn...'
-                                        tags={[
-                                            { name: 'Sự kiện' },
-                                            { name: 'Thông báo' },
-                                            { name: 'Tin tức' }
-                                        ]}
-                                        view='10N'
-                                        postDate='20/02/2022'
-                                        image={image.post_img_1}
-                                    />
-                                </div>
-                                <div className={cx('col')}>
-                                    <PostCard
-                                        host='Admin'
-                                        title='Thông báo kết quả lựa chọn nhà cung cấp nước đá chế tác Băng Đăng'
-                                        desc='Công ty Cổ phần Dịch vụ Du lịch Phú Thọ thông báo đến các đơn vị tham gia chào giá cạnh tranh Hạng mục Cung cấp nước đá để chế tạo...'
-                                        tags={[
-                                            { name: 'Sự kiện' },
-                                            { name: 'Thông báo' },
-                                            { name: 'Tin tức' }
-                                        ]}
-                                        view='10N'
-                                        postDate='20/02/2022'
-                                        image={image.post_img_2}
-                                    />
-                                </div>
-                                <div className={cx('col')}>
-                                    <PostCard
-                                        host='Admin'
-                                        title='Thông báo mời chào hàng cạnh tranh 2 màn hình Led P4 Outdoor Fullcolor'
-                                        desc='CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH PHÚ THỌ thông báo mời chào hàng cạnh tranh lựa chọn đơn vị Cung cấp, lắp đặt 02 màn hình Led P4'
-                                        tags={[
-                                            { name: 'Sự kiện' },
-                                            { name: 'Thông báo' },
-                                            { name: 'Tin tức' }
-                                        ]}
-                                        view='10N'
-                                        postDate='20/02/2022'
-                                        image={image.post_img_1}
-                                    />
-                                </div>
+                                {recentBlogsData?.map((blog) => {
+                                    return (
+                                        <div
+                                            key={blog.id}
+                                            className={cx('col')}
+                                        >
+                                            <PostCard
+                                                id={blog.id}
+                                                host={blog.author}
+                                                title={blog.title}
+                                                desc='Công ty Cổ phần Dịch vụ Du lịch Phú Thọ thông báo đến các nhà thầu tham gia chào hàng cạnh tranh Gói thầu: Cung cấp, lắp đặt 02 màn...'
+                                                tags={blog.tags}
+                                                view='10N'
+                                                postDate={blog.postedDate}
+                                                image={blog.image}
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                         <Button
                             className={cx('home-post__btn')}
                             text='Xem thêm bài viết'
-                            to='#'
+                            to='/blogs'
                             maxWidth='202px'
                         />
                     </section>

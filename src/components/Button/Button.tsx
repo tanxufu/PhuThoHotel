@@ -9,9 +9,10 @@ interface ButtonProps {
     className?: string;
     to?: string;
     maxWidth?: string;
+    onClick?: () => void;
 }
 
-function Button({ text, to, className, maxWidth }: ButtonProps) {
+function Button({ text, to, className, maxWidth, onClick }: ButtonProps) {
     let Comp: any = 'button';
 
     if (to) {
@@ -23,6 +24,7 @@ function Button({ text, to, className, maxWidth }: ButtonProps) {
             className={cx('primary-btn', className)}
             to={to}
             style={{ width: maxWidth }}
+            onClick={onClick}
         >
             {text}
         </Comp>

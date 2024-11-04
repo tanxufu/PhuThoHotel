@@ -6,27 +6,36 @@ import Button from '../Button';
 const cx = classNames.bind(styles);
 
 interface CareerCardProps {
+    id: string;
     mini?: boolean;
     active?: boolean;
+    name: string;
+    position: string;
+    address: string;
+    jobDescription: string[];
+    image: string;
+    postedDate: string;
 }
 
-function CareerCard({ mini = false, active = false }: CareerCardProps) {
+function CareerCard({
+    id,
+    mini = false,
+    active = false,
+    name,
+    position,
+    address,
+    jobDescription,
+    postedDate,
+    image
+}: CareerCardProps) {
     return (
         <article className={cx('career-card', { 'career-card': mini })}>
             <div className={cx('career-card__top')}>
-                <img
-                    src={icon.damsen_logo}
-                    alt=''
-                    className={cx('career-card__logo')}
-                />
+                <img src={image} alt='' className={cx('career-card__logo')} />
 
                 <div className={cx('career-card__header')}>
-                    <h2 className={cx('career-card__title')}>
-                        Nhân viên thiết kế đồ hoạ
-                    </h2>
-                    <p className={cx('career-card__label')}>
-                        Nhân viên chính thức
-                    </p>
+                    <h2 className={cx('career-card__title')}>{name}</h2>
+                    <p className={cx('career-card__label')}>{position}</p>
                 </div>
             </div>
 
@@ -39,7 +48,7 @@ function CareerCard({ mini = false, active = false }: CareerCardProps) {
                             className={cx('career-card__data-icon')}
                         />
                         <p className={cx('career-card__data-label')}>
-                            CVVH Đầm Sen
+                            {address}
                         </p>
                     </div>
                     <div className={cx('career-card__data')}>
@@ -49,7 +58,7 @@ function CareerCard({ mini = false, active = false }: CareerCardProps) {
                             className={cx('career-card__data-icon')}
                         />
                         <p className={cx('career-card__data-label')}>
-                            2 tuần trước
+                            {postedDate}
                         </p>
                     </div>
                 </div>
@@ -67,14 +76,11 @@ function CareerCard({ mini = false, active = false }: CareerCardProps) {
                 <p className={cx('career-card__desc-title')}>
                     Mô tả công việc:
                 </p>
-                <p className={cx('career-card__desc-info')}>
-                    Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh
-                    doanh lữ hành. Yêu cầu: Tốt nghiệp CĐ, ĐH chuyên ngành Du
-                    lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                </p>
+                <p className={cx('career-card__desc-info')}>{jobDescription}</p>
             </div>
 
             <Button
+                to={`/career-details?id=${id}`}
                 className={cx('career-card__btn')}
                 text='Xem chi tiết'
             ></Button>

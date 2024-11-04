@@ -1,4 +1,7 @@
 const image = {
+    damsen_logo: require('./damsen_logo.png'),
+    career: require('./career.png'),
+
     banner_img_1: require('./home/banner_img_1.png'),
     banner_img_2: require('./home/banner_img_2.png'),
     banner_img_3: require('./home/banner_img_3.png'),

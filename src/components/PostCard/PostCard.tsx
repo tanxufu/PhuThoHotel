@@ -5,10 +5,11 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 interface PostCardProps {
+    id: string;
     host: string;
     title: string;
     desc?: string;
-    tags: { name: string }[];
+    tags: string[];
     view: string;
     postDate: string;
     image: string;
@@ -16,6 +17,7 @@ interface PostCardProps {
 }
 
 function PostCard({
+    id,
     host,
     title,
     desc,
@@ -27,7 +29,7 @@ function PostCard({
 }: PostCardProps) {
     return (
         <article className={cx('postcard', { 'postcard--mini': mini })}>
-            <Link to='#'>
+            <Link to={`/blog-details?id=${id}`}>
                 <div
                     className={cx('postcard__img-wrap', {
                         'postcard--mini__img-wrap': mini
@@ -66,7 +68,7 @@ function PostCard({
                     ></div>
                 </div>
 
-                <Link to='#'>
+                <Link to={`/blog-details?id=${id}`}>
                     <h3
                         className={cx('postcard__title', {
                             'postcard--mini__title': mini
@@ -99,7 +101,7 @@ function PostCard({
                                     'postcard--mini__tag': mini
                                 })}
                             >
-                                {tag.name}
+                                {tag}
                             </div>
                         );
                     })}

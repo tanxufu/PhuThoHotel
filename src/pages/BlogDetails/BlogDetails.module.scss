@@ -1,0 +1,188 @@
+@use '../../components/Styles/abstracts';
+
+.post {
+    margin: 40px 0 80px;
+    padding: 48px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 2px 32px 0px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(7.5px);
+
+    @include abstracts.screen(md) {
+        margin: 16px 0 50px;
+        padding: 24px;
+    }
+
+    &__heading {
+        font-size: 4.8rem;
+        font-weight: 700;
+        line-height: 1.66;
+
+        color: #0054a6;
+
+        @include abstracts.screen(xl) {
+            font-size: 3.2rem;
+            line-height: 1.5;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 2rem;
+            line-height: 1.42;
+        }
+    }
+
+    &__author {
+        margin-top: 2px;
+        line-height: 1.31;
+        color: #666666;
+
+        @include abstracts.screen(md) {
+            margin-top: 8px;
+            font-size: 1.2rem;
+        }
+    }
+
+    &__img-wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 53%;
+
+        margin-top: 48px;
+
+        @include abstracts.screen(md) {
+            margin-top: 16px;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.post-content {
+    margin-top: 32px;
+    font-size: 1.6rem;
+    line-height: 1.5;
+
+    @include abstracts.screen(md) {
+        margin-top: 16px;
+        font-size: 1.2rem;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 3.2rem;
+
+        @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
+    }
+
+    h3 {
+        font-size: 2.4rem;
+
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+        }
+    }
+
+    h4 {
+        font-size: 1.8rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    img,
+    ul,
+    ol {
+        margin: 20px 0;
+
+        @include abstracts.screen(md) {
+            margin: 16px 0;
+        }
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    img + em {
+        display: block;
+        font-style: italic;
+        text-align: center;
+    }
+
+    ul {
+        list-style: disc;
+        margin-left: 20px;
+    }
+
+    a {
+        color: #0054a6;
+        text-decoration: underline;
+    }
+
+    b {
+        font-weight: 500;
+    }
+
+    i {
+        font-style: italic;
+    }
+
+    blockquote {
+        padding: 14px;
+        font-style: italic;
+        background-color: rgb(0, 84, 166, 0.2);
+        border-left: 4px solid #0054a6;
+
+        @include abstracts.screen(md) {
+            padding: 12px;
+        }
+    }
+}
+
+.post-relate {
+    margin-top: 48px;
+
+    &__heading {
+        font-size: 3.2rem;
+        font-weight: 600;
+        line-height: 1.12;
+
+        color: #0054a6;
+
+        @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__list {
+        margin-top: 16px;
+
+        @include abstracts.screen(md) {
+            margin-top: 12px;
+        }
+    }
+}

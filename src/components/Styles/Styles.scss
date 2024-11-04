@@ -1,5 +1,5 @@
-@use './abstracts/' as abstract;
-@use './base/' as base;
+@use './abstracts';
+@use './base';
 
 // Philosopher font
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
